@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Messages
+{% endblock %}
+
+
+{% block body %}
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form.message }}
+    </br>
+    <button type="submin">save massage</button>
+</form>
+{% for msg in messages %}
+    <div class="msg">
+        <p class="msg-txt">{{ msg.message }}</p>
+        <p class="msg-date">{{ msg.createdon }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
